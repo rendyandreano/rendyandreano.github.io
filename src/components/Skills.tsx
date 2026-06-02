@@ -1,0 +1,67 @@
+import { motion } from "framer-motion";
+import { Code2, Database, Layout, Server, Smartphone, Globe, Cpu, Cloud } from "lucide-react";
+
+const skills = [
+  { name: "React / Next.js", level: 95, icon: Layout },
+  { name: "TypeScript", level: 90, icon: Code2 },
+  { name: "Node.js", level: 88, icon: Server },
+  { name: "Python / AI", level: 85, icon: Cpu },
+  { name: "PostgreSQL", level: 82, icon: Database },
+  { name: "React Native", level: 78, icon: Smartphone },
+  { name: "Cloud / AWS", level: 80, icon: Cloud },
+  { name: "REST / GraphQL", level: 88, icon: Globe },
+];
+
+const Skills = () => {
+  return (
+    <section id="skills" className="py-24 px-6 bg-secondary/50">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <p className="text-primary text-sm tracking-[0.2em] uppercase font-medium mb-2">Keahlian</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Skills & Expertise</h2>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {skills.map((skill, i) => (
+            <motion.div
+              key={skill.name}
+              className="glass rounded-xl p-6 group hover:glow-blue transition-all duration-500 cursor-default"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg gradient-electric flex items-center justify-center">
+                  <skill.icon className="text-primary-foreground" size={20} />
+                </div>
+                <h3 className="font-semibold text-foreground text-sm">{skill.name}</h3>
+              </div>
+              
+              {/* Progress bar */}
+              <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full rounded-full gradient-electric"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 + 0.3, duration: 1, ease: "easeOut" }}
+                />
+              </div>
+              <p className="text-xs text-muted-foreground mt-2 text-right">{skill.level}%</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
