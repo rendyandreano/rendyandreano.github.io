@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
-    slug: "sim-app",
+    slug: "simppa",
     title: "Sistem Informasi Manajemen Aplikasi",
     shortDescription:
       "A centralized platform to collect, monitor progress, and showcase Project-Based Learning outcomes from all departments within the Faculty of Vocational Studies.",

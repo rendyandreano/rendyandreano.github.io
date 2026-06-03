@@ -1,6 +1,6 @@
 export const projects = [
   {
-    slug: "sim-app",
+    slug: "simppa",
     title: "Sistem Informasi Manajemen Aplikasi",
     subtitle: "AI Chatbot Platform",
     shortDescription:
