@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
+import { FileText } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -58,7 +59,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             Lihat CV
-            <ArrowDown size={18} />
+            <FileText size={18} />
           </a>
           <a
             href="#contact"
