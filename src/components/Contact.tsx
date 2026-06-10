@@ -114,7 +114,7 @@ const Contact = () => {
                 {[
                   { icon: Linkedin, href: "www.linkedin.com/in/rendyandreanop", label: "LinkedIn" },
                   { icon: Github, href: "https://github.com/rendyandreano", label: "GitHub" },
-                  { icon: Instagram, href: "#", label: "Instagram" },
+                  { icon: Instagram, href: "https://www.instagram.com/rendyandreano", label: "Instagram" },
                 ].map((social) => (
                   <a
                     key={social.label}
