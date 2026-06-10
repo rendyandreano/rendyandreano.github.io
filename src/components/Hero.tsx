@@ -64,7 +64,7 @@ const Hero = () => {
             href="#projects"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-foreground text-navy font-semibold hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
           >
-            Lihat Portfolio
+            Download CV
             <ArrowDown size={18} />
           </a>
         </motion.div>
