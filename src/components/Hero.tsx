@@ -54,18 +54,18 @@ const Hero = () => {
             <ArrowDown size={18} />
           </a>
           <a
+            href="#projects"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
+          >
+            Lihat CV
+            <ArrowDown size={18} />
+          </a>
+          <a
             href="#contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <Mail size={18} />
             Hubungi Saya
-          </a>
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-foreground text-navy font-semibold hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
-          >
-            Download CV
-            <ArrowDown size={18} />
           </a>
         </motion.div>
       </div>
