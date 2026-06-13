@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail, FileText, X } from "lucide-react";
 
@@ -49,7 +49,9 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          
+
+          {/* Portfolio */}
+          <a
             href="#projects"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-foreground text-navy font-semibold hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
           >
@@ -57,7 +59,7 @@ const Hero = () => {
             <ArrowDown size={18} />
           </a>
 
-          {/* ✅ Tombol Lihat CV — sekarang pakai button + onClick */}
+          {/* CV */}
           <button
             onClick={() => setCvOpen(true)}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
@@ -66,24 +68,26 @@ const Hero = () => {
             Lihat CV
           </button>
 
-          
+          {/* Contact */}
+          <a
             href="#contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <Mail size={18} />
             Hubungi Saya
           </a>
+
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <ArrowDown className="text-primary-foreground/40" size={24} />
-      </motion.div>
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <ArrowDown className="text-primary-foreground/40" size={24} />
+        </motion.div>
 
       {/* ✅ Modal CV */}
       {cvOpen && (
@@ -115,7 +119,7 @@ const Hero = () => {
             {/* Iframe Google Drive Preview */}
             <div className="flex-1 overflow-hidden">
               <iframe
-                src="https://drive.google.com/file/d/1WF1if1NGYO_rfuX9DRjvPWW242tg6hU4/preview"
+                src="https://drive.google.com/file/d/FILE_ID_KAMU/preview"
                 title="CV Preview"
                 className="w-full h-full border-none"
                 allow="autoplay"
