@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
-import { FileText } from "lucide-react";
+import { ArrowDown, Mail, FileText, X } from "lucide-react";
 
 const Hero = () => {
+  const [cvOpen, setCvOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-blue">
       {/* Tech grid overlay */}
@@ -47,21 +49,24 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <a
+          
             href="#projects"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-foreground text-navy font-semibold hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
           >
             Lihat Portfolio
             <ArrowDown size={18} />
           </a>
-          <a
-            href="#projects"
+
+          {/* ✅ Tombol Lihat CV — sekarang pakai button + onClick */}
+          <button
+            onClick={() => setCvOpen(true)}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <FileText size={18} />
             Lihat CV
-          </a>
-          <a
+          </button>
+
+          
             href="#contact"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
@@ -79,6 +84,46 @@ const Hero = () => {
       >
         <ArrowDown className="text-primary-foreground/40" size={24} />
       </motion.div>
+
+      {/* ✅ Modal CV */}
+      {cvOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          onClick={(e) => e.target === e.currentTarget && setCvOpen(false)}
+        >
+          <motion.div
+            className="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-700 w-[90vw] max-w-3xl h-[90vh] flex flex-col overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Header Modal */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-neutral-200 dark:border-neutral-700">
+              <h2 className="text-sm font-medium text-neutral-800 dark:text-neutral-100 flex items-center gap-2">
+                <FileText size={16} />
+                Curriculum Vitae — Rendy Andreano Prayoga
+              </h2>
+              <button
+                onClick={() => setCvOpen(false)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-xs text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition"
+              >
+                <X size={13} />
+                Tutup
+              </button>
+            </div>
+
+            {/* Iframe Google Drive Preview */}
+            <div className="flex-1 overflow-hidden">
+              <iframe
+                src="https://drive.google.com/file/d/1WF1if1NGYO_rfuX9DRjvPWW242tg6hU4/preview"
+                title="CV Preview"
+                className="w-full h-full border-none"
+                allow="autoplay"
+              />
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };
