@@ -119,7 +119,7 @@ const Hero = () => {
             {/* Iframe Google Drive Preview */}
             <div className="flex-1 overflow-hidden">
               <iframe
-                src="https://drive.google.com/file/d/FILE_ID_KAMU/preview"
+                src="https://drive.google.com/file/d/1WF1if1NGYO_rfuX9DRjvPWW242tg6hU4/preview"
                 title="CV Preview"
                 className="w-full h-full border-none"
                 allow="autoplay"
