@@ -86,9 +86,9 @@ const Skills = () => {
               </div>
               <p className="text-xs text-muted-foreground mt-2 text-right">{skill.level}%</p>
             </motion.div>
-          ))}
-
-          {skills.length > INITIAL_VISIBLE && (
+          ))}         
+        </div>
+                  {skills.length > INITIAL_VISIBLE && (
             <div className="w-full flex justify-center mt-10">
               <button
                 onClick={() => setExpanded(!expanded)}
@@ -118,8 +118,7 @@ const Skills = () => {
                 )}
               </button>
             </div>
-          )}               
-        </div>
+          )}      
       </div>
     </section>
   );
