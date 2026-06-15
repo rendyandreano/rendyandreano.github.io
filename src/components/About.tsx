@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Code2, Brain, Rocket, Sparkles } from "lucide-react";
+import { Code2, MonitorCloud, TabletSmartphone, PencilRuler } from "lucide-react";
 
 const highlights = [
   { icon: Code2, label: "Full Stack Dev" },
-  { icon: Brain, label: "AI / ML" },
-  { icon: Rocket, label: "Cloud & DevOps" },
-  { icon: Sparkles, label: "UI/UX Design" },
+  { icon: MonitorCloud, label: "SaaS" },
+  { icon: TabletSmartphone , label: "Mobile Dev" },
+  { icon: PencilRuler, label: "UI/UX Design" },
 ];
 
 const About = () => {
@@ -50,13 +50,16 @@ const About = () => {
             transition={{ duration: 0.7 }}
           >
             <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-              Saya adalah seorang Full Stack Developer dengan passion mendalam di bidang Artificial Intelligence 
-              dan teknologi modern. Dengan pengalaman lebih dari 5 tahun, saya telah membangun berbagai aplikasi 
-              web dan solusi AI yang berdampak.
+              I am an Information Technology graduate with hands-on experience in Software Development and IT Support, 
+              specializing in SaaS (Software as a Service) development and business process automation. 
+              I have built web-based ERP and CRM systems that streamline manual workflows, improve operational 
+              efficiency, and deliver measurable business impact.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Fokus utama saya adalah menciptakan produk digital yang tidak hanya fungsional, tetapi juga 
-              memberikan pengalaman pengguna yang luar biasa melalui desain yang clean dan performa yang optimal.
+              My focus is on developing scalable and user-centered digital products through full-stack development, 
+              while integrating modern technologies and third-party services such as Google Cloud, 
+              Meta, and TikTok APIs. Passionate about building reliable and impactful SaaS solutions that 
+              help businesses grow and operate more efficiently.
             </p>
 
             <div className="grid grid-cols-2 gap-3">
