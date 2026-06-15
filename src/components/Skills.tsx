@@ -1,5 +1,17 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Database, Layout, Server, Smartphone, Globe, Cpu, Cloud } from "lucide-react";
+import {
+  Code2,
+  Database,
+  Layout,
+  Server,
+  Smartphone,
+  Globe,
+  Cpu,
+  Cloud,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 
 const skills = [
   { name: "React / Next.js", level: 95, icon: Layout },
@@ -23,8 +35,13 @@ const skills = [
   { name: "Postman", level: 88, icon: Globe },
   { name: "Elementor", level: 88, icon: Globe },
 ];
+const INITIAL_VISIBLE = 12;
 
 const Skills = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleSkills =
+    expanded ? skills : skills.slice(0, INITIAL_VISIBLE);
   return (
     <section id="skills" className="py-24 px-6 bg-secondary/50">
       <div className="max-w-6xl mx-auto">
@@ -40,7 +57,7 @@ const Skills = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {skills.map((skill, i) => (
+          {visibleSkills.map((skill, i) => (
             <motion.div
               key={skill.name}
               className="glass rounded-xl p-6 group hover:glow-blue transition-all duration-500 cursor-default"
@@ -54,6 +71,24 @@ const Skills = () => {
                 <div className="w-10 h-10 rounded-lg gradient-electric flex items-center justify-center">
                   <skill.icon className="text-primary-foreground" size={20} />
                 </div>
+          {skills.length > INITIAL_VISIBLE && (
+            <div className="flex justify-center mt-10">
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="px-6 py-3 rounded-xl border hover:scale-105 transition flex items-center gap-2"
+              >
+                {expanded ? (
+                  <>
+                    Show Less <ChevronUp size={18} />
+                  </>
+                ) : (
+                  <>
+                    Show More <ChevronDown size={18} />
+                  </>
+                )}
+              </button>
+            </div>
+          )}               
                 <h3 className="font-semibold text-foreground text-sm">{skill.name}</h3>
               </div>
               
