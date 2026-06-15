@@ -35,7 +35,7 @@ const skills = [
   { name: "Postman", level: 88, icon: Globe },
   { name: "Elementor", level: 88, icon: Globe },
 ];
-const INITIAL_VISIBLE = 12;
+const INITIAL_VISIBLE = 8;
 
 const Skills = () => {
   const [expanded, setExpanded] = useState(false);
@@ -87,20 +87,33 @@ const Skills = () => {
               <p className="text-xs text-muted-foreground mt-2 text-right">{skill.level}%</p>
             </motion.div>
           ))}
-          
+
           {skills.length > INITIAL_VISIBLE && (
             <div className="flex justify-center mt-10">
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="px-6 py-3 rounded-xl border hover:scale-105 transition flex items-center gap-2"
+                className="
+                  mt-8
+                  flex
+                  items-center
+                  gap-2
+                  mx-auto
+                  text-primary
+                  hover:opacity-80
+                  hover:-translate-y-1
+                  transition
+                  font-medium
+                "
               >
                 {expanded ? (
                   <>
-                    Show Less <ChevronUp size={18} />
+                    Show Less 
+                    <ChevronUp size={18} />
                   </>
                 ) : (
                   <>
-                    Show More <ChevronDown size={18} />
+                    Show More 
+                    <ChevronDown size={18} />
                   </>
                 )}
               </button>
