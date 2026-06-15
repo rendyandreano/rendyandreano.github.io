@@ -21,6 +21,7 @@ const skills = [
   { name: "Microsoft Office", level: 88, icon: Globe },
   { name: "Wordpress", level: 88, icon: Globe },
   { name: "Postman", level: 88, icon: Globe },
+  { name: "Elementor", level: 88, icon: Globe },
 ];
 
 const Skills = () => {
