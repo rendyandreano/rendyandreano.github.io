@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { Code2, TabletSmartphone, PencilRuler } from "lucide-react";
+import { Code2, CloudCog, TabletSmartphone, PencilRuler } from "lucide-react";
 
 const highlights = [
   { icon: Code2, label: "Full Stack Dev" },
-  { icon: TabletSmartphone, label: "SaaS" },
+  { icon: CloudCog, label: "SaaS" },
   { icon: TabletSmartphone , label: "Mobile Dev" },
   { icon: PencilRuler, label: "UI/UX Design" },
 ];
