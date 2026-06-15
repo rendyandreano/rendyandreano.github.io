@@ -89,7 +89,7 @@ const Skills = () => {
           ))}
 
           {skills.length > INITIAL_VISIBLE && (
-            <div className="flex justify-center mt-10">
+            <div className="w-full flex justify-center mt-10">
               <button
                 onClick={() => setExpanded(!expanded)}
                 className="
