@@ -71,6 +71,23 @@ const Skills = () => {
                 <div className="w-10 h-10 rounded-lg gradient-electric flex items-center justify-center">
                   <skill.icon className="text-primary-foreground" size={20} />
                 </div>
+                <h3 className="font-semibold text-foreground text-sm">{skill.name}</h3>
+              </div>
+              
+              {/* Progress bar */}
+              <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full rounded-full gradient-electric"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 + 0.3, duration: 1, ease: "easeOut" }}
+                />
+              </div>
+              <p className="text-xs text-muted-foreground mt-2 text-right">{skill.level}%</p>
+            </motion.div>
+          ))}
+          
           {skills.length > INITIAL_VISIBLE && (
             <div className="flex justify-center mt-10">
               <button
@@ -89,22 +106,6 @@ const Skills = () => {
               </button>
             </div>
           )}               
-                <h3 className="font-semibold text-foreground text-sm">{skill.name}</h3>
-              </div>
-              
-              {/* Progress bar */}
-              <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full rounded-full gradient-electric"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 + 0.3, duration: 1, ease: "easeOut" }}
-                />
-              </div>
-              <p className="text-xs text-muted-foreground mt-2 text-right">{skill.level}%</p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
