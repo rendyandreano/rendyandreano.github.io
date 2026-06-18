@@ -20,7 +20,7 @@ const projects = [
       "Developed and implemented a comprehensive web-based Project-Based Learning (PBL) Management System for the Faculty of Vocational Studies, Universitas Brawijaya. The platform was designed to streamline and digitize the end-to-end management of project-based learning activities, improving both student collaboration and administrative efficiency. Key features include project title selection and management, student team formation, project progress tracking, milestone monitoring, final project submission, and project showcase administration. The system enables students to organize and manage project workflows more effectively while providing lecturers and administrators with centralized tools to oversee project execution and evaluate outcomes. By integrating project coordination, documentation, and showcase processes into a single platform, the application reduces manual administration, enhances communication among stakeholders, and supports a more structured, transparent, and efficient academic project ecosystem.",
     description:
       "Developed and implemented a comprehensive web-based Project-Based Learning (PBL) Management System for the Faculty of Vocational Studies, Universitas Brawijaya. The platform was designed to streamline and digitize the end-to-end management of project-based learning activities, improving both student collaboration and administrative efficiency. Key features include project title selection and management, student team formation, project progress tracking, milestone monitoring, final project submission, and project showcase administration. The system enables students to organize and manage project workflows more effectively while providing lecturers and administrators with centralized tools to oversee project execution and evaluate outcomes. By integrating project coordination, documentation, and showcase processes into a single platform, the application reduces manual administration, enhances communication among stakeholders, and supports a more structured, transparent, and efficient academic project ecosystem.",
-    tags: ["Tailwind CSS", "MySQL", "HTML", "PHP"],
+    tags: ["PHP", "MySQL", "HTML5", "Tailwind CSS", "Figma"],
     color: "from-indigo-600 to-blue-500",
   },
   {
@@ -30,37 +30,77 @@ const projects = [
       "Greenhouse Automatic Watering System is a smart application that monitors temperature, humidity, and soil moisture in real time across two zones, helping maintain optimal greenhouse conditions through automated watering and simple visual insights.",
     description:
       "The Greenhouse Automatic Watering System is an intelligent monitoring and automation application designed to optimize greenhouse conditions efficiently. The system continuously tracks key environmental parameters, including air temperature, air humidity, and soil moisture across two different zones in real time. By integrating sensor data with a user-friendly interface, the application provides clear visualizations such as simple charts and real-time status updates, enabling users to easily understand environmental changes. Additionally, the system generates alerts when conditions fall outside optimal ranges, allowing timely intervention. One of the core features of this system is its automated watering mechanism. Based on soil moisture levels, the system can trigger irrigation processes to ensure plants receive the appropriate amount of water without manual input, improving efficiency and reducing resource waste. This project demonstrates the implementation of real-time data monitoring, automation logic, and user-centered design to support smart agriculture solutions, particularly in greenhouse management.",
-    tags: ["React", "Node.js", "MQTT", "TensorFlow"],
+    tags: ["React.js", "Typescript", "Vite", "HTML5", "Tailwind CSS", "Figma"],
     color: "from-blue-500 to-purple-500",
   },
   {
-    slug: "pema-bimbel",
-    title: "Company Profile Pema Bimbingan Belajar",
+    slug: "crm",
+    title: "Customer Relationship Management Application",
     shortDescription:
       "Pema Bimbel is a tutoring platform designed to help students from kindergarten to junior high school understand lessons more effectively through interactive learning methods, experienced tutors, and affordable pricing.",
     description:
       "Pema Bimbel is a web-based tutoring platform developed to support students from kindergarten (TK), elementary (SD), and junior high school (SMP), with future plans to expand to senior high school (SMA). This platform aims to make learning more accessible, engaging, and effective by combining interactive teaching methods with guidance from experienced and competent tutors. The system provides a wide range of subjects tailored to students’ academic needs. Each learning session is designed to be easy to understand, encouraging students to actively participate and improve their academic performance. From a system perspective, this project focuses on delivering a user-friendly interface where students and parents can easily explore available tutoring services. The platform emphasizes simplicity, accessibility, and affordability, ensuring that quality education can be reached by a broader audience. Key features of this platform include subject-based tutoring services, structured learning approaches, and interactive methods that enhance student engagement. The project reflects a commitment to improving educational experiences through technology-driven solutions.",
-    tags: ["WordPress", "Elementor", "MySQL", "HTML", "CSS", "JavaScript"],
+    tags: ["React.js", "Typescript", "Vite", "HTML5", "Tailwind CSS", "Figma"],
     color: "from-sky-500 to-blue-600",
   },
   {
-    slug: "dgreen",
+    slug: "APM",
     title: "Company Profile Dgreen",
     shortDescription:
       "Platform CI/CD dengan monitoring infrastructure.",
     description:
       "Platform CI/CD otomatis dengan monitoring infrastructure dan deployment management.",
-    tags: ["WordPress", "Elementor", "MySQL", "HTML", "CSS", "JavaScript"],
+    tags: ["React.js", "Typescript", "Vite", "HTML5", "Tailwind CSS", "Figma"],
     color: "from-blue-600 to-teal-500",
   },
   {
-    slug: "bomang",
+    slug: "DGREEN",
     title: "Company Profile Bomang Fiberglass",
     shortDescription:
       "Website profile dengan dashboard visual.",
     description:
       "Tool analisis sentimen media sosial dengan NLP dan dashboard visual.",
-    tags: ["WordPress", "Elementor", "MySQL", "HTML", "CSS", "JavaScript"],
+    tags: ["Wordpress", "Elementor", "MySQL", "HTML5", "CSS3", "JavaScript"],
+    color: "from-violet-500 to-blue-500",
+  },
+  {
+    slug: "Undangan Pernikahan",
+    title: "Undangan Pernikahan",
+    shortDescription:
+      "Website profile dengan dashboard visual.",
+    description:
+      "Tool analisis sentimen media sosial dengan NLP dan dashboard visual.",
+    tags: ["Wordpress", "Elementor", "MySQL", "HTML5", "CSS3", "JavaScript"],
+    color: "from-violet-500 to-blue-500",
+  },
+    {
+    slug: "Bride and Groom",
+    title: "Bride and Groom",
+    shortDescription:
+      "Website profile dengan dashboard visual.",
+    description:
+      "Tool analisis sentimen media sosial dengan NLP dan dashboard visual.",
+    tags: ["CodeIgniter 4", "HTML5", "MySQL", "PHP", "CSS3", "Figma"],
+    color: "from-violet-500 to-blue-500",
+  },
+  {
+    slug: "Bomang Fiberglass",
+    title: "Bomang Fiberglass",
+    shortDescription:
+      "Website profile dengan dashboard visual.",
+    description:
+      "Tool analisis sentimen media sosial dengan NLP dan dashboard visual.",
+    tags: ["Wordpress", "Elementor", "MySQL", "PHP", "CSS3", "Figma"],
+    color: "from-violet-500 to-blue-500",
+  },
+  {
+    slug: "Pema",
+    title: "Pema",
+    shortDescription:
+      "Website profile dengan dashboard visual.",
+    description:
+      "Tool analisis sentimen media sosial dengan NLP dan dashboard visual.",
+    tags: ["Wordpress", "Elementor", "MySQL", "PHP", "CSS3", "Figma"],
     color: "from-violet-500 to-blue-500",
   },
 ];
