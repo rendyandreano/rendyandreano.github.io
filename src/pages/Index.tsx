@@ -4,7 +4,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
-import Sertificatios from "@/components/Sertificatios";
+import Sertifications from "@/components/Sertifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -33,7 +33,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Timeline />
-      <Sertificatios/>
+      <Sertifications/>
       <Contact />
       <Footer />
     </div>
