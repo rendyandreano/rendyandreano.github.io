@@ -3,27 +3,54 @@ import { Award } from "lucide-react";
 
 const certifications = [
   {
-    issuer: "Dicoding",
-    name: "Belajar Dasar Pemrograman Web",
-    date: "2023",
-    credential: "CERT-001",
+    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
+    name: "Junior Web Developer",
+    date: "2025",
+    description: "CERT-001",
     status: "valid",
   },
   {
-    issuer: "Dicoding",
-    name: "Belajar Membuat Aplikasi Back-End untuk Pemula",
-    date: "2023",
+    issuer: "PT Petrokimia Gresik",
+    name: "Software Development Intern",
+    date: "2025",
     credential: "CERT-002",
     status: "valid",
   },
   {
-    issuer: "Coursera",
-    name: "Google IT Support Professional",
+    issuer: "Trust Training Partners (Microsoft Partner)",
+    name: "Microsoft Office Desktop Application",
     date: "2024",
     credential: "CERT-003",
     status: "valid",
   },
-  // add more here...
+  {
+    issuer: "Educational Testing Services(ETS)",
+    name: "Test of English as a Foreign Language (TOEFL)",
+    date: "2024",
+    credential: "CERT-003",
+    status: "valid",
+  },
+  {
+    issuer: "Trust Unified Systems (Microsoft Partner)",
+    name: "Microsoft Office 2016 Course",
+    date: "2024",
+    credential: "CERT-003",
+    status: "valid",
+  },
+  {
+    issuer: "Duolingo",
+    name: "Duolingo English Test",
+    date: "2024",
+    credential: "CERT-003",
+    status: "valid",
+  },
+  {
+    issuer: "HMPSTI Universitas Brawijaya",
+    name: "Project Manager Grow Up with TI",
+    date: "2023",
+    credential: "CERT-003",
+    status: "valid",
+  },
 ];
 
 const Certifications = () => {
