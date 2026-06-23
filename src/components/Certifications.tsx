@@ -13,42 +13,42 @@ const certifications = [
     issuer: "PT Petrokimia Gresik",
     name: "Software Development Intern",
     date: "2025",
-    credential: "CERT-002",
+    description: "CERT-002",
     status: "valid",
   },
   {
     issuer: "Trust Training Partners (Microsoft Partner)",
     name: "Microsoft Office Desktop Application",
     date: "2024",
-    credential: "CERT-003",
+    description: "CERT-003",
     status: "valid",
   },
   {
     issuer: "Educational Testing Services(ETS)",
     name: "Test of English as a Foreign Language (TOEFL)",
     date: "2024",
-    credential: "CERT-003",
+    description: "CERT-003",
     status: "valid",
   },
   {
     issuer: "Trust Unified Systems (Microsoft Partner)",
     name: "Microsoft Office 2016 Course",
     date: "2024",
-    credential: "CERT-003",
+    description: "CERT-003",
     status: "valid",
   },
   {
     issuer: "Duolingo",
     name: "Duolingo English Test",
     date: "2024",
-    credential: "CERT-003",
+    description: "CERT-003",
     status: "valid",
   },
   {
     issuer: "HMPSTI Universitas Brawijaya",
     name: "Project Manager Grow Up with TI",
     date: "2023",
-    credential: "CERT-003",
+    description: "CERT-003",
     status: "valid",
   },
 ];
@@ -71,7 +71,7 @@ const Certifications = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {certifications.map((cert, i) => (
             <motion.div
-              key={cert.credential}
+              key={cert.description}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -83,7 +83,7 @@ const Certifications = () => {
               </div>
               <p className="text-xs text-primary font-semibold tracking-wider uppercase mb-1">{cert.issuer}</p>
               <h3 className="text-sm font-bold text-foreground leading-snug">{cert.name}</h3>
-              <p className="text-xs text-muted-foreground font-mono mt-2">ID: {cert.credential}</p>
+              <p className="text-xs text-muted-foreground font-mono mt-2">{cert.description}</p>
               <div className="flex items-center gap-3 mt-3">
                 <span className="text-xs text-muted-foreground">{cert.date}</span>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
