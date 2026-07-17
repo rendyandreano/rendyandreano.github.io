@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, FileText, X } from "lucide-react";
+import { ArrowDown, Mail, FileText, X, ArrowRight, Presentation } from "lucide-react";
 
 const Hero = () => {
   const [cvOpen, setCvOpen] = useState(false);
@@ -55,7 +55,7 @@ const Hero = () => {
             href="#projects"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-foreground text-navy font-semibold hover:bg-primary-foreground/90 transition-all duration-300 hover:shadow-lg hover:shadow-white/20"
           >
-            Lihat Portfolio
+            See Portfolio
             <ArrowDown size={18} />
           </a>
 
@@ -65,7 +65,16 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <FileText size={18} />
-            Lihat CV
+            CV
+          </button>
+
+          {/* Portfolio PDF */}
+          <button
+            onClick={() => setCvOpen(true)}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
+          >
+            <Presentation size={18} />
+            PDF ver. Portfolio
           </button>
 
           {/* Contact */}
@@ -74,7 +83,8 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <Mail size={18} />
-            Hubungi Saya
+            Get In Touch
+            <ArrowRight size={18} />
           </a>
 
         </motion.div>
