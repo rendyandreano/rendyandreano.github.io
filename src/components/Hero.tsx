@@ -4,6 +4,7 @@ import { ArrowDown, Mail, FileText, X, ArrowRight, Presentation } from "lucide-r
 
 const Hero = () => {
   const [cvOpen, setCvOpen] = useState(false);
+  const [portfolioOpen, setPortfolioOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-blue">
@@ -70,7 +71,7 @@ const Hero = () => {
 
           {/* Portfolio PDF */}
           <button
-            onClick={() => setCvOpen(true)}
+            onClick={() => setPortfolioOpen(true)}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <Presentation size={18} />
@@ -131,6 +132,46 @@ const Hero = () => {
               <iframe
                 src="https://drive.google.com/file/d/1WF1if1NGYO_rfuX9DRjvPWW242tg6hU4/preview"
                 title="CV Preview"
+                className="w-full h-full border-none"
+                allow="autoplay"
+              />
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* ✅ Modal Portfolio PDF */}
+      {portfolioOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          onClick={(e) => e.target === e.currentTarget && setPortfolioOpen(false)}
+        >
+          <motion.div
+            className="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-700 w-[90vw] max-w-3xl h-[90vh] flex flex-col overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            {/* Header Modal */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-neutral-200 dark:border-neutral-700">
+              <h2 className="text-sm font-medium text-neutral-800 dark:text-neutral-100 flex items-center gap-2">
+                <Presentation size={16} />
+                Portfolio (PDF) — Rendy Andreano Prayoga
+              </h2>
+              <button
+                onClick={() => setPortfolioOpen(false)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 text-xs text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition"
+              >
+                <X size={13} />
+                Tutup
+              </button>
+            </div>
+
+            {/* Iframe Google Drive Preview */}
+            <div className="flex-1 overflow-hidden">
+              <iframe
+                src="https://drive.google.com/file/d/1QfIlYCcwQwjnqKy5-ZsIBV6MQl-MEmNA/preview"
+                title="Portfolio PDF Preview"
                 className="w-full h-full border-none"
                 allow="autoplay"
               />
