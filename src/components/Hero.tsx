@@ -75,7 +75,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg border border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-all duration-300"
           >
             <Presentation size={18} />
-            PDF ver. Portfolio
+            PDF Ver. Portfolio
           </button>
 
           {/* Contact */}
