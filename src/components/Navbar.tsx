@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+import { ModeToggle } from "@/components/ui/mode-toggle";
+
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Product", href: "#products" },
+  { label: "Products", href: "#products" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -17,7 +19,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
+
     window.addEventListener("scroll", handler);
+
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
@@ -31,7 +35,8 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center">
+        {/* Logo */}
+        <a href="#">
           <img
             src="/profilpicpng.png"
             alt="Rendy"
@@ -39,47 +44,63 @@ const Navbar = () => {
           />
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                scrolled ? "text-muted-foreground" : "text-primary-foreground/70 hover:text-primary-foreground"
-              }`}
-            >
-              {item.label}
-            </a>
-          ))}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center">
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  scrolled
+                    ? "text-muted-foreground"
+                    : "text-primary-foreground/70 hover:text-primary-foreground"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="ml-6">
+            <ModeToggle />
+          </div>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className={`md:hidden ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Right Side */}
+        <div className="md:hidden flex items-center gap-2">
+          <ModeToggle />
+
+          <button
+            onClick={() => setOpen(!open)}
+            className={
+              scrolled ? "text-foreground" : "text-primary-foreground"
+            }
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {open && (
         <motion.div
-          className="md:hidden glass mt-2 mx-4 rounded-xl p-4 space-y-3"
+          className="md:hidden glass mt-2 mx-4 rounded-xl p-4"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-foreground hover:text-primary transition-colors py-1"
-            >
-              {item.label}
-            </a>
-          ))}
+          <div className="space-y-3">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </motion.div>
       )}
     </motion.nav>

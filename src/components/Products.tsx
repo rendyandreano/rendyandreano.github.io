@@ -4,7 +4,7 @@ import { MessageCircle, ShoppingCart } from "lucide-react";
 // TODO: replace with your real WhatsApp number in international format (no +, no spaces)
 const WHATSAPP_NUMBER = "6281234567890";
 
-type Product = {
+type Products = {
   slug: string;
   title: string;
   shortDescription: string;
@@ -17,7 +17,7 @@ type Product = {
   color: string;
 };
 
-const products: Product[] = [
+const products: Products[] = [
   {
     slug: "pos-system",
     title: "Point of Sales System",
@@ -121,9 +121,9 @@ const Products = () => {
 
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-          {products.map((product, i) => (
+          {products.map((products, i) => (
             <motion.div
-              key={product.slug}
+              key={products.slug}
               className="glass rounded-2xl overflow-hidden group flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -133,41 +133,41 @@ const Products = () => {
             >
               {/* IMAGE AREA */}
               <div
-                className={`h-36 bg-gradient-to-br ${product.color} flex items-center justify-center relative overflow-hidden`}
+                className={`h-36 bg-gradient-to-br ${products.color} flex items-center justify-center relative overflow-hidden`}
               >
                 <div className="absolute inset-0 tech-grid opacity-30" />
 
-                {product.image ? (
+                {products.image ? (
                   <img
-                    src={product.image}
-                    alt={product.title}
+                    src={products.image}
+                    alt={products.title}
                     className="w-full h-full object-cover z-10 transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
                   <span className="text-primary-foreground/80 font-bold text-lg z-10 transition-transform duration-500 group-hover:scale-110">
-                    {product.title}
+                    {products.title}
                   </span>
                 )}
 
                 {/* STATUS BADGE */}
                 <span className="absolute top-3 right-3 z-20 text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-100 border border-emerald-400/40 backdrop-blur font-medium">
-                  {product.status}
+                  {products.status}
                 </span>
               </div>
 
               {/* CONTENT */}
               <div className="p-4 flex flex-col flex-1">
                 <h3 className="font-semibold text-foreground text-lg mb-2">
-                  {product.title}
+                  {products.title}
                 </h3>
 
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
-                  {product.shortDescription}
+                  {products.shortDescription}
                 </p>
 
                 {/* FEATURES */}
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {product.features.slice(0,4).map((feature) => (
+                  {products.features.slice(0,4).map((feature) => (
                     <span
                       key={feature}
                       className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium"
@@ -179,7 +179,7 @@ const Products = () => {
 
                 {/* TECH STACK */}
                 <div className="flex flex-wrap gap-2 mb-5">
-                  {product.technologies.slice(0,4).map((tech) => (
+                  {products.technologies.slice(0,4).map((tech) => (
                     <span
                       key={tech}
                       className="text-xs px-3 py-1 rounded-full bg-foreground/5 text-muted-foreground border border-border font-medium"
@@ -195,14 +195,14 @@ const Products = () => {
                     Starting from
                   </p>
                   <p className="text-xl font-bold text-foreground">
-                    {product.price}
+                    {products.price}
                   </p>
                 </div>
 
                 {/* BUTTONS */}
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href={buildWaLink(askMessage(product.whatsappName))}
+                    href={buildWaLink(askMessage(products.whatsappName))}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-primary/40 text-primary px-3 py-2 text-xs font-medium transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:-translate-y-0.5"
@@ -211,7 +211,7 @@ const Products = () => {
                     Ask for Information
                   </a>
                   <a
-                    href={buildWaLink(buyMessage(product.whatsappName))}
+                    href={buildWaLink(buyMessage(products.whatsappName))}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 text-sm font-medium transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30"

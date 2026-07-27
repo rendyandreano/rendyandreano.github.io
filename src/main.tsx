@@ -1,5 +1,16 @@
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
+import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+import { ThemeProvider } from "./components/ui/theme-provider";
+
+createRoot(document.getElementById("root")!).render(
+  <ThemeProvider
+    attribute="class"
+    defaultTheme="system"
+    enableSystem
+    disableTransitionOnChange
+  >
+    <App />
+  </ThemeProvider>
+);
