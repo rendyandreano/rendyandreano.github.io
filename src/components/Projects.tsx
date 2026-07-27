@@ -171,12 +171,12 @@ const Projects = () => {
 
                 {/* CONTENT */}
                 <div className="p-5">
-                  <h3 className="font-semibold text-foreground text-lg mb-2">
+                  <h3 className="font-semibold text-foreground text-lg mb-2 leading-7 h-14 line clamp-2">
                     {project.title}
                   </h3>
 
                   {/* ✅ SHORT DESCRIPTION */}
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-4">
                     {project.shortDescription}
                   </p>
 
