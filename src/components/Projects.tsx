@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { Link } from "react-router-dom";
+import ShowMoreButton from "@/components/ui/ShowMoreButton";
+import { useShowMore } from "@/hooks/useShowMore";
 
 const projects = [
   {
@@ -106,8 +108,21 @@ const projects = [
 ];
 
 const Projects = () => {
+
+  const {
+    expanded,
+    visibleItems: visibleProjects,
+    initialVisible,
+    toggle,
+    sectionRef,
+    } = useShowMore(projects, 6, 3);
+
   return (
-    <section id="projects" className="py-24 px-6">
+    <section 
+    ref={sectionRef}
+    id="projects" 
+    className="py-24 px-6"
+    >
       <div className="max-w-6xl mx-auto">
 
         {/* HEADER */}
@@ -128,17 +143,40 @@ const Projects = () => {
 
         {/* GRID */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
+        
+        <AnimatePresence mode="popLayout">
+          {visibleProjects.map((project, i) => (
 
             /* ✅ LINK KE DETAIL */
-            <Link key={project.slug} to={`/project/${project.slug}`}>
+            <Link 
+              key={project.slug} 
+              to={`/project/${project.slug}`}
+            >
               <motion.div
                 className="glass rounded-2xl overflow-hidden group cursor-pointer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                layout
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                  scale: 0.95,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: -20,
+                  scale: 0.95,
+                }}
+                transition={{
+                  duration: 0.35,
+                  delay: i * 0.05,
+                }}
+                whileHover={{
+                  y: -8,
+                }}
               >
 
                 {/* IMAGE AREA */}
@@ -171,7 +209,7 @@ const Projects = () => {
 
                 {/* CONTENT */}
                 <div className="p-5">
-                  <h3 className="font-semibold text-foreground text-lg mb-2 leading-7 h-14 line clamp-2">
+                  <h3 className="font-semibold text-foreground text-lg mb-2 leading-7 h-14 line-clamp-2">
                     {project.title}
                   </h3>
 
@@ -196,7 +234,14 @@ const Projects = () => {
             </Link>
 
           ))}
+        </AnimatePresence>
         </div>
+        {projects.length > initialVisible && (
+          <ShowMoreButton
+            expanded={expanded}
+            onClick={toggle}
+          />
+        )} 
       </div>
     </section>
   );

@@ -7,13 +7,16 @@ export function ModeToggle() {
 
   const isDark = resolvedTheme === "dark";
 
+  const inactiveColor = "text-muted-foreground";
+
   return (
     <div className="flex items-center gap-2">
       <Sun
         className={`h-4 w-4 transition-transform duration-500 hover:rotate-180 ${
-          !isDark ? "text-yellow-400" : "text-white/60"
+          !isDark ? "text-yellow-400" : inactiveColor
         }`}
       />
+
 
       <Switch
         checked={isDark}
@@ -24,7 +27,7 @@ export function ModeToggle() {
 
       <Moon
         className={`h-4 w-4 transition-transform duration-500 hover:rotate-180 ${
-          isDark ? "text-blue-400" : "text-white/60"
+          isDark ? "text-blue-400" : inactiveColor
         }`}
       />
     </div>

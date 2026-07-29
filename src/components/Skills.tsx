@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import ShowMoreButton from "@/components/ui/ShowMoreButton";
+import { motion, AnimatePresence } from "framer-motion";
+import { useShowMore } from "@/hooks/useShowMore";
 import {
   Code2,
   Database,
@@ -47,15 +49,35 @@ const skills = [
   { name: "Postman", level: 60, icon: PersonStanding },
   { name: "Elementor", level: 88, icon: LayoutTemplate },
 ];
-const INITIAL_VISIBLE = 8;
 
 const Skills = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [initialVisible, setInitialVisible] = useState(8);
 
-  const visibleSkills =
-    expanded ? skills : skills.slice(0, INITIAL_VISIBLE);
+    useEffect(() => {
+      const handleResize = () => {
+        setInitialVisible(window.innerWidth < 768 ? 3 : 8);
+      };
+
+      handleResize();
+
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+  const {
+    expanded,
+    visibleItems: visibleSkills,
+    toggle,
+    sectionRef,
+  } = useShowMore(skills, initialVisible);
+
   return (
-    <section id="skills" className="py-24 px-6 bg-secondary/50">
+    <section 
+    ref={sectionRef}
+    id="skills" 
+    className="py-24 px-6 bg-secondary/50"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -69,14 +91,20 @@ const Skills = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          
+        <AnimatePresence mode="popLayout">
           {visibleSkills.map((skill, i) => (
             <motion.div
               key={skill.name}
+              layout
               className="glass rounded-xl p-6 group hover:glow-blue transition-all duration-500 cursor-default"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{
+                duration: 0.35,
+                delay: i * 0.05,
+              }}
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -98,39 +126,15 @@ const Skills = () => {
               </div>
               <p className="text-xs text-muted-foreground mt-2 text-right">{skill.level}%</p>
             </motion.div>
-          ))}         
-        </div>
-                  {skills.length > INITIAL_VISIBLE && (
-            <div className="w-full flex justify-center mt-10">
-              <button
-                onClick={() => setExpanded(!expanded)}
-                className="
-                  mt-8
-                  flex
-                  items-center
-                  gap-2
-                  mx-auto
-                  text-primary
-                  hover:opacity-80
-                  hover:-translate-y-1
-                  transition
-                  font-medium
-                "
-              >
-                {expanded ? (
-                  <>
-                    Show Less 
-                    <ChevronUp size={18} />
-                  </>
-                ) : (
-                  <>
-                    Show More 
-                    <ChevronDown size={18} />
-                  </>
-                )}
-              </button>
-            </div>
-          )}      
+          ))}
+        </AnimatePresence>         
+      </div>
+        {skills.length > initialVisible && (
+          <ShowMoreButton
+            expanded={expanded}
+            onClick={toggle}
+          />
+        )}
       </div>
     </section>
   );

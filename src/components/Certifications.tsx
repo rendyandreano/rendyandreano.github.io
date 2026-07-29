@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
-import { Award } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Award, ChevronDown } from "lucide-react";
+import ShowMoreButton from "@/components/ui/ShowMoreButton";
+import { useShowMore } from "@/hooks/useShowMore";
 
 const certifications = [
   {
@@ -54,9 +56,20 @@ const certifications = [
 ];
 
 const Certifications = () => {
+  const {
+      expanded,
+      visibleItems: visibleCertifications,
+      initialVisible,
+      toggle,
+      sectionRef,
+  } = useShowMore(certifications, 6, 3);
+
   return (
-    <section id="certifications" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section 
+    ref={sectionRef}  
+    id="certifications" 
+      className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,13 +82,31 @@ const Certifications = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {certifications.map((cert, i) => (
+
+          <AnimatePresence mode="popLayout">
+            {visibleCertifications.map((cert, i) => (
             <motion.div
-              key={cert.description}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
+              key={cert.name}
+              layout
+              initial={{
+                opacity: 0,
+                y: 30,
+                scale: 0.95,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+                y: -20,
+                scale: 0.95,
+              }}
+              transition={{
+                duration: 0.35,
+                delay: i * 0.05,
+              }}
               className="glass rounded-xl p-6 hover:glow-blue-sm transition-all duration-300"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
@@ -92,9 +123,16 @@ const Certifications = () => {
               </div>
             </motion.div>
           ))}
+          </AnimatePresence>
         </div>
       </div>
-    </section>
+      {certifications.length > initialVisible && (
+        <ShowMoreButton
+          expanded={expanded}
+          onClick={toggle}
+        />
+      )}
+  </section>
   );
 };
 

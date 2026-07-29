@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Label } from "recharts";
 
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Products", href: "#products" },
   { label: "Contact", href: "#contact" },
 ];
